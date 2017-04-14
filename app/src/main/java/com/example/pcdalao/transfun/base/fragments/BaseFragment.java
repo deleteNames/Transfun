@@ -35,6 +35,10 @@ public abstract class BaseFragment extends Fragment {
         return mRoot;
     }
 
+    protected void initWidget(View root) {
+
+    }
+
     protected abstract int getLayoutId();
 
     protected void onBindViewBefore(View root) {
