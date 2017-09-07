@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout
+        xmlns:rfal="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/label_list_sample_rfal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        rfal:rfal_frame_color="#ffffff"
+        rfal:rfal_frame_alpha="0.7"
+        >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/tab_nav"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:background="#F6F6F6"
+                        app:tabGravity="fill"
+                        app:tabIndicatorColor="@color/actionbar_background"
+                        app:tabMode="fixed"
+                        app:tabSelectedTextColor="?attr/colorPrimary"
+                        app:tabTextColor="@color/project_listitem_someinfo" />
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/base_viewPager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+        <com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton
+            xmlns:rfab="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/label_list_sample_rfab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            rfab:rfab_size="normal"
+            rfab:rfab_drawable="@drawable/rfab__drawable_rfab_default"
+            rfab:rfab_color_normal="#fcb1ca"
+            rfab:rfab_color_pressed="#fd93b6"
+            rfab:rfab_shadow_radius="7dp"
+            rfab:rfab_shadow_color="#bbbbbb"
+            rfab:rfab_shadow_dx="2dp"
+            rfab:rfab_shadow_dy="3dp"
+            />
+
+
+    </com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout>
+
+</RelativeLayout >

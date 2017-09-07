@@ -1,8 +1,195 @@
 <resources>
-    <string name="app_name">Transfun</string>
+    <string name="app_name">TransLives</string>
 
-    <string name="main_tab_name_news">综合</string>
-    <string name="main_tab_name_tweet">动弹</string>
+    <string name="main_tab_name_news">资讯</string>
+    <string name="main_tab_name_faxian">发现</string>
+    <string name="main_tab_name_topic">话题</string>
+    <string name="main_tab_name_tweet">问答</string>
+    <string name="main_tab_name_attent">消息</string>
     <string name="main_tab_name_my">我的</string>
-    <string name="main_tab_name_explore">发现</string>
+    <string name="main_tab_name_setting">设置</string>
+    <string name="main_tab_name_explore">关注</string>
+
+    <string name="enter">确定</string>
+    <string name="cancel">取消</string>
+    <string name="copy">复制</string>
+    <string name="delete">删除</string>
+    <string name="transmit">转发</string>
+    <string name="copy_success">复制成功</string>
+
+    <string name="add_favorite_success">收藏成功</string>
+    <string name="add_favorite_faile">收藏失败</string>
+    <string name="del_favorite_success">已取消收藏</string>
+    <string name="del_favorite_faile">取消收藏失败</string>
+
+    <string name="add_follow_success">关注成功</string>
+    <string name="del_follow_success">已取消关注</string>
+    <string name="follow_faile">操作失败</string>
+
+    <!--新版评论专用-->
+    <string name="about_comment_hint">相关评论</string>
+    <string name="view_more_hint">更多评论</string>
+    <string name="send_hint">发送</string>
+    <string name="comment_hint">请输入评论</string>
+    <string name="hot_comment_hint">热门评论</string>
+    <string name="pub_comment_hint">发表评论</string>
+    <string name="pub_comment_success">评论成功</string>
+    <string name="pub_comment_failed">评论失败</string>
+    <string name="add_comment_hint">添加评论</string>
+    <string name="comment_title_hint">评论</string>
+    <string name="tip_comment_content_empty">评论内容不能为空</string>
+
+    <string name="item_hint">条</string>
+    <string name="floor_hint">楼</string>
+    <string name="reply_hint">回复:</string>
+    <string name="answer_btn_hint">写回答</string>
+    <string name="answer_hint">回答</string>
+    <string name="pub_about">发布于</string>
+    <string name="back_hint">返回</string>
+    <string name="martian_hint">网友</string>
+    <string name="share_title">分享</string>
+
+
+    <string name="tweet_publish_title">发布提问</string>
+    <string name="tweet_publishing">正在发布…</string>
+    <string name="tweet_publishing_toast">正在发布, 请留意通知栏。</string>
+    <string name="tweet_publish_success">发布成功~</string>
+    <string name="tweet_publish_failed">发布失败, 请重新发送!</string>
+    <string name="tweet_image_wait">准备图片中…</string>
+    <string name="tweet_image_wait_failed">图片转存失败!</string>
+    <string name="tweet_image_publishing">发布图片中…</string>
+    <string name="tweet_image_publish_failed">发布图片失败</string>
+
+
+    <string name="attach_uploading">图片上传中…</string>
+    <string name="attach_upload_failed">图片上传失败</string>
+
+    <string name="permissions_camera_error">相机无法完成初始化,请正确授权。</string>
+
+    <string name="gallery_save_file_not_have_external_storage">没有外部存储!</string>
+    <string name="gallery_save_file_success">保存成功!</string>
+    <string name="gallery_save_file_failed">存储失败!</string>
+    <string name="image_select_opt_done">完成</string>
+    <string name="image_select_opt_preview">预览</string>
+
+    <string name="ok">确定</string>
+    <string name="tip_title_empty">标题不能为空</string>
+    <string name="tip_title_too_long">标题太长</string>
+    <string name="tip_content_empty">内容不能为空</string>
+    <string name="tip_content_too_long">内容太长</string>
+
+    <string name="publish_type_question">发起了提问</string>
+    <string name="publish_type_share">发表了分享</string>
+
+
+    <string name="share_to">分享</string>
+    <string name="share_hint">抱歉,您未安装该应用,不能分享&#8230;</string>
+    <string name="platform_sina">微博</string>
+    <string name="platform_wechat_circle">朋友圈</string>
+    <string name="platform_wechat">微信</string>
+    <string name="platform_qq">QQ</string>
+    <string name="platform_tweet">动弹</string>
+    <string name="platform_browser">浏览器</string>
+    <string name="platform_copy_link">复制链接</string>
+    <string name="platform_more_option">更多</string>
+    <string name="platform_download">保存图片</string>
+    <string name="platform_preview">预览</string>
+
+    <string name="state_network_error">网络错误</string>
+    <string name="state_loading">正在加载…</string>
+    <string name="state_not_more">没有更多数据</string>
+    <string name="state_load_error">加载失败</string>
+    <string name="state_refreshing">正在刷新</string>
+    <string name="state_loading_error">数据加载中&#8230;</string>
+    <string name="state_submit">正在提交中&#8230;</string>
+
+    <string name="footer_type_loading">正在加载中…</string>
+    <string name="footer_type_error">加载失败</string>
+    <string name="footer_type_net_error">网络错误</string>
+    <string name="footer_type_not_more">没有更多数据</string>
+
+    <string name="error_view_no_data">暂无内容</string>
+    <string name="error_view_loading">加载中…</string>
+    <string name="error_view_loading_friend">数据初始化中…</string>
+    <string name="error_view_loading_local_friend">获取附近人中…</string>
+    <string name="error_view_load_error_click_to_refresh">内容加载失败\r\n点击重新加载</string>
+    <string name="tip_network_error">没有可用的网络</string>
+    <string name="tip_no_internet">当前没有可用的网络链接</string>
+    <string name="request_error_hint">网络请求失败,请重试&#8230;</string>
+
+    <string name="vote_up">赞同</string>
+    <string name="vote_down">反对</string>
+
+    <string name="favorite">我的收藏</string>
+    <string name="question">我的提问</string>
+    <string name="answer">我的回答</string>
+    <string name="follow">我的关注</string>
+    <string name="topic">我的帖子</string>
+    <string name="setting">设置</string>
+
+    <string name="actionbar_title_my_information">我的资料</string>
+    <string name="avatar">头像 :</string>
+    <string name="nickname">昵称 :</string>
+    <string name="gender">性别 :</string>
+    <string name="suffix">签名 :</string>
+    <string name="join_time">加入于 :</string>
+    <string name="location">所在地区:</string>
+
+
+    <string name="from_mobile">手机</string>
+    <string name="from_android">Android</string>
+    <string name="from_iphone">iPhone</string>
+    <string name="from_windows_phone">Windows Phone</string>
+    <string name="from_wechat">微信</string>
+
+    <string name="tip_double_click_exit">再次点击退出</string>
+
+    <string name="title_updating_user_avatar">正在上传头像…</string>
+    <!-- 个人信息-->
+    <string name="action_select">选择操作</string>
+    <string name="edit_nickname">修改昵称</string>
+    <string name="edit_gender">修改性别</string>
+    <string name="edit_suffix">修改签名</string>
+    <string name="title_icon_null">图像不存在，上传失败</string>
+    <string name="title_update_fail_status">个人信息更新失败&#8230;</string>
+
+    <string name="you_have_unread_messages">你有%s条未读消息</string>
+
+    <!--新版登录专用-->
+    <string name="user_hint_login">点击头像登录</string>
+    <string name="login">登录</string>
+    <string name="login_success_hint">登录成功</string>
+    <string name="login_other_hint">使用第三方账号直接登录</string>
+    <string name="login_wechat_hint">正在启动微信中&#8230;</string>
+    <string name="login_tencent_hint">正在启动QQ中&#8230;</string>
+    <string name="login_weibo_hint">正在启动微博中&#8230;</string>
+    <string name="login_hint">抱歉,您未安装该应用,不能登录&#8230;</string>
+
+    <string name="program_error_hint">程序错误</string>
+    <string name="feature_suggestions_hint">功能建议</string>
+    <string name="feedback_hint">我们将不断改进</string>
+    <string name="screenshot_hint">截图描述：（可选）</string>
+    <string name="submit_feedback_hint">提交反馈</string>
+
+    <string name="loading_img">加载图片</string>
+    <string name="clean_cache">清理缓存</string>
+    <string name="double_click_exit">双击退出</string>
+    <string name="loading_more">自动加载\"更多\"</string>
+    <string name="update">检查更新</string>
+    <string name="about" translatable="false">关于我们</string>
+    <string name="app_intro">\u3000\u3000欢迎来到TransLives, 希望通过网络链接性別越界人士，尤其是跨性別及跨性別群体。让其能够在网络世界交流、支持、分享信息，甚至发展情缘。</string>
+    <string name="feedback">意见反馈</string>
+    <string name="setting_cancel">注销</string>
+    <string name="logout_success_hint">注销成功</string>
+    <string name="grade">去评分</string>
+    <string name="label_web">官网</string>
+    <string name="label_web_value">http://www.translives.net</string>
+    <string name="label_mail">联系邮箱</string>
+    <string name="label_mail_value">market@translives.net</string>
+
+    <string name="event_status_end">活动结束</string>
+    <string name="event_status_ing">正在报名</string>
+    <string name="event_status_sing_up">截止报名</string>
+
+    <string name="copyright">© 2017 translives.net All rights reserved.</string>
 </resources>

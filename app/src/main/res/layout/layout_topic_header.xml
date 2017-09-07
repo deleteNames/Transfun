@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/white">
+
+        <net.translives.app.banner.BannerView
+            android:id="@+id/bannerView"
+            app:scroll_duration="800"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <net.translives.app.banner.CircleBannerIndicator
+                android:id="@+id/indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:layout_gravity="center|center_vertical"
+                android:gravity="center"
+                app:circle_banner_indicator_centerHorizontal="true"
+                app:circle_banner_indicator_color="@color/white"
+                app:circle_banner_indicator_fill_color="@color/main_green"
+                app:circle_banner_indicator_indicator_radius="3dp"
+                app:circle_banner_indicator_radius="2dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:id="@+id/t_menu_follow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/app_name"
+                android:paddingLeft="@dimen/lay_2"
+                android:paddingRight="@dimen/lay_2"
+                android:paddingTop="@dimen/lay_2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tab_icon_new" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp"
+                android:text="关注动态" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/t_menu_vote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/app_name"
+                android:paddingLeft="@dimen/lay_2"
+                android:paddingRight="@dimen/lay_2"
+                android:paddingTop="@dimen/lay_2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tab_icon_new" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp"
+                android:text="投票" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/t_menu_topic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/app_name"
+                android:paddingLeft="@dimen/lay_2"
+                android:paddingRight="@dimen/lay_2"
+                android:paddingTop="@dimen/lay_2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tab_icon_new" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp"
+                android:text="圈子" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/t_menu_activity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/app_name"
+                android:paddingLeft="@dimen/lay_2"
+                android:paddingRight="@dimen/lay_2"
+                android:paddingTop="@dimen/lay_2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tab_icon_new" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginTop="1dp"
+                android:gravity="center"
+                android:textColor="@color/primarybar_txt"
+                android:textSize="12sp"
+                android:text="活动" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,30 +1,126 @@
 apply plugin: 'com.android.application'
+apply from: 'properties-util.gradle'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
     defaultConfig {
-        applicationId "com.example.pcdalao.transfun"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_SERVER_URL", '"http://api.translives.net/"')
+/*
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a","arm64-v8a", "x86", "x86_64","mips","mips64"
+        }
+*/
+    }
+    // rename the apk with the version name
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            output.outputFile = new File(
+                    output.outputFile.parent + "/${variant.buildType.name}",
+                    "translives-${variant.flavorName}-${variant.versionName}-${variant.buildType.name}.apk".toLowerCase())
+        }
+    }
+    //signing files settings
+    signingConfigs {
+        if (propertyHaveSigningConfigs) {
+            release {
+                storeFile file(propertyStoreFileStr)
+                storePassword propertyStorePwdStr
+                keyAlias propertyKeyAliasStr
+                keyPassword propertyKeyPwdStr
+            }
+        }
+
+        if (propertyHaveDebugSigningConfigs) {
+            debug {
+                storeFile file(propertyDebugStoreFileStr)
+                storePassword propertyDebugStorePwdStr
+                keyAlias propertyDebugKeyAliasStr
+                keyPassword propertyDebugKeyPwdStr
+            }
+        }
+    }
+    // 移除lint检查的error
+    lintOptions {
+        abortOnError false
     }
     buildTypes {
-        release {
-            minifyEnabled false
+        debug {
+            jniDebuggable true
+            zipAlignEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (propertyHaveDebugSigningConfigs)
+                signingConfig signingConfigs.debug
         }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
+            if (propertyHaveSigningConfigs)
+                signingConfig signingConfigs.release
+        }
+    }
+    //product flavors
+    productFlavors {
+        translives {
+            manifestPlaceholders = [UMENG_CHANNEL: "translives"]
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+/*
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+*/
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
     }
 }
 
 dependencies {
+    compile "com.android.support:support-v4:$rootProject.ext.supportVersion"
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
+    compile "com.android.support:design:$rootProject.ext.supportVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
+    compile "com.android.support:cardview-v7:$rootProject.ext.supportVersion"
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.belerweb:pinyin4j:2.5.1'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'pub.devrel:easypermissions:0.1.7'
+    compile 'com.github.wangjiegulu:ShadowViewhelper:1.0.4'
+    compile 'com.github.wangjiegulu:AndroidBucket:1.0.4'
+    compile 'com.github.wangjiegulu:RapidFloatingActionButton:1.0.3'
+    compile 'com.umeng.analytics:analytics:latest.integration'
     testCompile 'junit:junit:4.12'
 }

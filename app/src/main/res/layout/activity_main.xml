@@ -9,7 +9,7 @@ android:layout_height="match_parent">
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.pcdalao.transfun.MainActivity">
+    tools:context="net.translives.app.MainActivity">
 
     <FrameLayout
         android:id="@+id/main_container"
@@ -19,7 +19,7 @@ android:layout_height="match_parent">
 
     <fragment
         android:id="@+id/fag_nav"
-        android:name="com.example.pcdalao.transfun.nav.NavFragment"
+        android:name="net.translives.app.nav.NavFragment"
         android:layout_width="match_parent"
         android:layout_height="48dp" />
 </LinearLayout>

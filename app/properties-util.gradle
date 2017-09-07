@@ -1,0 +1,44 @@
+// local.properties
+Properties localProperties = new Properties()
+localProperties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+// root/gradle.properties
+//Map rootProperties = project.getProperties();
+
+def storeFileStr = localProperties.get('RELEASE_STORE_FILE', null)
+def storePwdStr = localProperties.get('RELEASE_STORE_PASSWORD', null)
+def keyAliasStr = localProperties.get('RELEASE_KEY_ALIAS', null)
+def keyPwdStr = localProperties.get('RELEASE_KEY_PASSWORD', null)
+
+def debug_storeFileStr = localProperties.get('DEBUG_STORE_FILE', null)
+def debug_storePwdStr = localProperties.get('DEBUG_STORE_PASSWORD', null)
+def debug_keyAliasStr = localProperties.get('DEBUG_KEY_ALIAS', null)
+def debug_keyPwdStr = localProperties.get('DEBUG_KEY_PASSWORD', null)
+
+def debugCompileUrl = localProperties.get('DEBUG_COMPILE_URL', null)
+def debugCompile = localProperties.get('DEBUG_COMPILE', null)
+
+android.buildTypes.all { buildType ->
+    localProperties.any { property ->
+        if (property.key.equals("VIOLET_PASSCODE")) {
+            buildType.buildConfigField "String", property.key, "\"${property.value}\""
+        }
+    }
+}
+ext {
+    propertyHaveSigningConfigs = (storeFileStr != null && storePwdStr != null && keyAliasStr != null && keyPwdStr != null)
+    propertyStoreFileStr = storeFileStr
+    propertyStorePwdStr = storePwdStr
+    propertyKeyAliasStr = keyAliasStr
+    propertyKeyPwdStr = keyPwdStr
+
+    propertyHaveDebugSigningConfigs = (debug_storeFileStr != null && debug_storePwdStr != null && debug_keyAliasStr != null && debug_keyPwdStr != null)
+    propertyDebugStoreFileStr = debug_storeFileStr
+    propertyDebugStorePwdStr = debug_storePwdStr
+    propertyDebugKeyAliasStr = debug_keyAliasStr
+    propertyDebugKeyPwdStr = debug_keyPwdStr
+
+    propertyHaveDebugCompile = (debugCompileUrl != null && debugCompile != null)
+    propertyDebugCompileUrl = debugCompileUrl
+    propertyDebugCompile = debugCompile
+}

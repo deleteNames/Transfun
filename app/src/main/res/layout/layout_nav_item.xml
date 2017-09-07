@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/nav_iv_icon"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/app_name"
             android:paddingLeft="@dimen/lay_2"
@@ -42,7 +42,7 @@
             tools:text="1"
             tools:visibility="visible" />
     </FrameLayout>
-
+<!--
     <TextView
         android:id="@+id/nav_tv_title"
         android:layout_width="wrap_content"
@@ -53,6 +53,5 @@
         android:textColor="@color/primarybar_txt"
         android:textSize="12sp"
         tools:text="资讯" />
-
-
+-->
 </LinearLayout>

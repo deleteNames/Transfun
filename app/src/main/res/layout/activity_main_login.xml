@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/lay_login_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_login"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <include
+            android:id="@+id/ly_retrieve_bar"
+            layout="@layout/activity_main_login_navigation_bar" />
+
+        <ImageView
+            android:id="@+id/iv_login_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@null"
+            android:layout_marginTop="70dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@mipmap/logo_osc" />
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/lay_12"
+            android:gravity="center"
+            android:text="@string/login_other_hint"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_login_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/lay_64"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ib_login_weibo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:adjustViewBounds="false"
+                android:contentDescription="@null"
+                android:cropToPadding="false"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_login_3party_weibo" />
+<!--
+            <ImageView
+                android:id="@+id/ib_login_wx"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_login_3party_wechat" />
+-->
+            <ImageView
+                android:id="@+id/ib_login_qq"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="@null"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_login_3party_qq" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

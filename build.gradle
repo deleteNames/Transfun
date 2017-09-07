@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:2.3.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,4 +20,15 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    compileSdkVersion = 24
+    buildToolsVersion = "25.0.0"
+    applicationId = "net.translives.app"
+    minSdkVersion = 19
+    targetSdkVersion = 24
+    versionCode = 5
+    versionName = "v1.2.0(170810)"
+    supportVersion = '25.1.0'
 }

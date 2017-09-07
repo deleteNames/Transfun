@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/layout_item_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_portrait"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_version_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_5"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_size_12"
+            android:text="v1.0.0(222)"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_15"
+            android:layout_marginLeft="@dimen/space_35"
+            android:layout_marginRight="@dimen/space_35"
+            android:lineSpacingExtra="5dp"
+            android:textColor="?attr/textColor"
+            android:textSize="@dimen/text_size_14"
+            android:text="@string/app_intro"
+            />
+
+
+<!--
+        <RelativeLayout
+            android:id="@+id/rl_grade"
+            style="@style/option_item_rl"
+            android:background="?attr/layout_item_bg"
+            android:padding="0dp">
+
+            <TextView
+                android:id="@+id/tv_grade"
+                style="@style/option_item_text_parent"
+                android:layout_width="match_parent"
+                android:background="@drawable/ic_material"
+                android:paddingBottom="@dimen/lay_12"
+                android:paddingLeft="@dimen/lay_16"
+                android:paddingRight="@dimen/lay_16"
+                android:paddingTop="@dimen/lay_12"
+                android:text="@string/grade"
+                android:textColor="?attr/textColor"
+                android:textSize="@dimen/text_size_16" />
+        </RelativeLayout>
+        -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/lay_40"
+            android:paddingRight="@dimen/lay_40"
+            android:layout_marginTop="@dimen/lay_40"
+            android:orientation="vertical">
+
+            <View style="@style/h_line" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:paddingTop="@dimen/lay_16"
+                android:paddingBottom="@dimen/lay_16"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_web"
+                    android:textColor="?attr/textColor"
+                    android:textSize="@dimen/text_size_14" />
+
+                <TextView
+                    android:id="@+id/label_web_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight = "true"
+                    android:text="@string/label_web_value"
+                    android:textColor="?attr/textColor"
+                    android:textSize="@dimen/text_size_14" />
+            </RelativeLayout>
+
+            <View style="@style/h_line" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:paddingTop="@dimen/lay_16"
+                android:paddingBottom="@dimen/lay_16"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_mail"
+                    android:textColor="?attr/textColor"
+                    android:textSize="@dimen/text_size_14" />
+
+                <TextView
+                    android:id="@+id/label_mail_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight = "true"
+                    android:text="@string/label_mail_value"
+                    android:textColor="?attr/textColor"
+                    android:textSize="@dimen/text_size_14" />
+            </RelativeLayout>
+
+            <View style="@style/h_line" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:text="@string/copyright"
+        android:textColor="?attr/infoTextColor" />
+
+</LinearLayout>

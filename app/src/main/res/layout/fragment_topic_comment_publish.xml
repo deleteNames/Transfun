@@ -1,0 +1,130 @@
+<net.translives.app.widget.FitWindowFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="net.translives.app.topic.TopicPublishFragment">
+
+
+    <FrameLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/actionbar_background">
+
+        <ImageView
+            android:id="@+id/icon_back"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/ic_material_ripple"
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/btn_back_normal" />
+
+        <TextView
+            android:id="@+id/action_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="?attr/actionBarSize"
+            android:layout_gravity="left|center_vertical"
+            android:gravity="center"
+            android:text="主题跟帖"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_18" />
+
+        <Button
+            android:id="@+id/icon_send"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="end"
+            android:background="@drawable/ic_material_ripple"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="发表"
+            android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+            android:textColor="@color/tweet_publish_send" />
+    </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/lay_16"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:layout_marginBottom="@dimen/size_28"
+                android:background="@color/white"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <android.support.v4.widget.NestedScrollView
+                    android:id="@+id/lay_about"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:orientation="vertical">
+
+                        <net.translives.app.widget.richedit.RichEditText
+                            android:id="@+id/edit_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:gravity="start|left|top"
+                            android:minLines="10"
+                            android:paddingBottom="5dp"
+                            android:hint="输入内容"
+                            android:textColor="#111111"
+                            android:textColorHint="#707070"
+                            android:textSize="@dimen/font_16" />
+
+                        <TextView
+                            android:id="@+id/txt_content_tip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/size_20"
+                            android:textColor="@color/red_600"
+                            android:textSize="14sp"
+                            tools:text="12" />
+
+
+                    </LinearLayout>
+                </android.support.v4.widget.NestedScrollView>
+            </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/lay_option"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_44"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:padding="@dimen/lay_12"
+        >
+
+        <ImageView
+            android:id="@+id/iv_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:scaleType="fitStart"
+            android:src="@mipmap/ic_tweet_picture_normal" />
+
+        <!--
+        <ImageView
+            android:id="@+id/iv_hide_keyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerZZZZZZZVertical="true"
+            android:clickable="true"
+            android:scaleType="fitEnd"
+            android:src="@mipmap/ic_vote_down_normal" />
+-->
+    </RelativeLayout>
+</net.translives.app.widget.FitWindowFrameLayout>
