@@ -98,8 +98,12 @@ public final class AppHelper {
         }
     }
 
-    private static void showUrlRedirect(Context context, long id, String url) {
+    private static void showUrlRedirect(Context context, long id,String url) {
         URLUtils.parseUrl(context, url);
+    }
+
+    public static void showUrlRedirect(Context context, String url) {
+        showUrlRedirect(context, 0, url);
     }
 
     /**

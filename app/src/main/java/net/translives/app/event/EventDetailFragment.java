@@ -11,6 +11,7 @@ import net.translives.app.api.OSChinaApi;
 import net.translives.app.base.fragments.BaseFragment;
 import net.translives.app.bean.Event;
 import net.translives.app.util.TLog;
+import net.translives.app.widget.OWebView;
 import net.translives.app.widget.ScreenView;
 
 import butterknife.Bind;
@@ -40,7 +41,11 @@ public class EventDetailFragment extends BaseFragment implements  View.OnClickLi
     @Bind(R.id.tv_event_location)
     TextView mTextLocation;
 
+
+    protected OWebView mWebView;
+    protected Event mBean;
     protected int CACHE_CATALOG;
+
     protected NestedScrollView mViewScroller;
 
     public static EventDetailFragment newInstance() {
@@ -55,6 +60,7 @@ public class EventDetailFragment extends BaseFragment implements  View.OnClickLi
     @Override
     protected void initWidget(View root) {
         super.initWidget(root);
+        mWebView = (OWebView) mRoot.findViewById(R.id.webView);
 
         mViewScroller = (NestedScrollView) mRoot.findViewById(R.id.lay_nsv);
     }
@@ -67,6 +73,10 @@ public class EventDetailFragment extends BaseFragment implements  View.OnClickLi
 
     @SuppressLint("SetTextI18n")
     public void showGetDetailSuccess(Event bean) {
+        this.mBean = bean;
+
+        if (mContext == null) return;
+        mWebView.loadDetailDataAsync(bean.getBody(), (Runnable) mContext);
 
         mTextTitle.setText(bean.getTitle());
         TLog.log(bean.getTitle());

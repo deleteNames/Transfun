@@ -85,4 +85,36 @@
         <attr name="vertical_offset" format="dimension" />
         <attr name="scroll_duration" format="integer" />
     </declare-styleable>
+
+    <!-- MatchSupportProgressBar -->
+    <declare-styleable name="MatchSupportProgressBar">
+        <!-- 进度条圆角角度 -->
+        <attr name="progress_radio" format="string"></attr>
+        <!-- 进度条左侧Tag文本 -->
+        <attr name="progress_tag_text" format="string"></attr>
+        <!-- 进度条已填充部分颜色 -->
+        <attr name="progress_reach_color" format="color"></attr>
+        <!-- 进度条已填充部分高度 -->
+        <attr name="progress_reach_height" format="dimension"></attr>
+        <!-- 进度条背景颜色 -->
+        <attr name="progress_background_color" format="color"></attr>
+        <!-- 进度条背景高度 -->
+        <attr name="progress_background_height" format="dimension"></attr>
+        <!-- 进度条左侧Tag文本颜色 -->
+        <attr name="progress_tag_text_color" format="color"></attr>
+        <!-- 进度条左侧Tag文本尺寸 -->
+        <attr name="progress_tag_text_size" format="dimension"></attr>
+        <!-- 进度条右侧百分比文本颜色 -->
+        <attr name="progress_percent_text_color" format="color"></attr>
+        <!-- 进度条右侧百分比文本尺寸 -->
+        <attr name="progress_percent_text_size" format="dimension"></attr>
+        <!-- 进度条右侧百分比文本 -->
+        <attr name="progress_percent_text" format="string"></attr>
+        <!-- 进度条选中的图标与进度条、文字的间距 -->
+        <attr name="progress_offsetX" format="dimension"></attr>
+        <!-- 进度条右侧文字的水平偏移量 -->
+        <attr name="progress_offsetR" format="dimension"></attr>
+        <!-- 进度条之间的偏移量 -->
+        <attr name="progress_LineSpacing" format="dimension"></attr>
+    </declare-styleable>
 </resources>

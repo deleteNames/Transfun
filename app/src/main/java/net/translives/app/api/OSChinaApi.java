@@ -78,6 +78,13 @@ public class OSChinaApi {
         ApiHttpClient.post("api/feedback", params, handler);
     }
 
+    public static void validateRegister(String email, String pwd, TextHttpResponseHandler handler) {
+        RequestParams params = new RequestParams();
+        params.put("email", email);
+        params.put("pwd", pwd);
+        post("api/auth/register", params, handler);
+    }
+
     /**
      * @param catalog  open catalog
      * @param openInfo openInfo
@@ -377,6 +384,11 @@ public class OSChinaApi {
 
     }
 
+    public static void uploadUser(String nickname, TextHttpResponseHandler handler){
+        RequestParams params = new RequestParams();
+        params.put("nickname", nickname);
+        ApiHttpClient.post("api/user/profile/upload", params, handler);
+    }
 
     public static void uploadNickName(String nickname, TextHttpResponseHandler handler){
         RequestParams params = new RequestParams();

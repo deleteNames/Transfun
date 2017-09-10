@@ -92,12 +92,6 @@ public class EventDetailActivity extends BackActivity implements Runnable{
             }
         });
 
-
-        mBean = (Event) getIntent().getSerializableExtra("bean");
-        //mIdent = getIntent().getStringExtra("ident");
-        mDetailFragment = getDetailFragment();
-        addFragment(R.id.lay_container, mDetailFragment);
-
         mEmptyLayout = (EmptyLayout) findViewById(R.id.lay_error);
         mEmptyLayout.setOnLayoutClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +102,11 @@ public class EventDetailActivity extends BackActivity implements Runnable{
                 }
             }
         });
+
+        mBean = (Event) getIntent().getSerializableExtra("bean");
+        //mIdent = getIntent().getStringExtra("ident");
+        mDetailFragment = getDetailFragment();
+        addFragment(R.id.lay_container, mDetailFragment);
 
         mEmptyLayout.post(new Runnable() {
             @Override

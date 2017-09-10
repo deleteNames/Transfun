@@ -4,9 +4,12 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.SharedPreferencesCompat;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -15,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import net.translives.app.AppOperator;
 import net.translives.app.util.TLog;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -97,21 +101,17 @@ public class LoginActivity extends AccountBaseActivity implements View.OnClickLi
 
             Type type = new TypeToken<ResultBean<User>>() {
             }.getType();
-            TLog.log(responseString);
-            GsonBuilder gsonBuilder = new GsonBuilder();
-            ResultBean<User> resultBean = gsonBuilder.create().fromJson(responseString, type);
+
+            ResultBean<User> resultBean = AppOperator.createGson().fromJson(responseString, type);
             if (resultBean.isSuccess()) {
                 User user = resultBean.getResult();
-                AccountHelper.login(user, headers);
-//                hideKeyBoard(getCurrentFocus().getWindowToken());
-                AppContext.showToast(R.string.login_success_hint);
-                setResult(RESULT_OK);
-                sendLocalReceiver();
+                if (AccountHelper.login(user, headers)) {
+                    logSucceed();
 
-                //后台异步同步数据
-                //SyncFriendHelper.load(null);
-
-                MobclickAgent.onProfileSignIn(user.getMore().getPlatform(),user.getId()+"");
+                    MobclickAgent.onProfileSignIn(user.getMore().getPlatform(),user.getId()+"");
+                } else {
+                    showToastForKeyBord("登录异常");
+                }
 
             } else {
                 showToastForKeyBord(resultBean.getMessage());
@@ -131,6 +131,21 @@ public class LoginActivity extends AccountBaseActivity implements View.OnClickLi
             hideWaitDialog();
         }
     };
+
+    private void logSucceed() {
+        View view;
+        if ((view = getCurrentFocus()) != null) {
+            hideKeyBoard(view.getWindowToken());
+        }
+        AppContext.showToast(R.string.login_success_hint);
+        setResult(RESULT_OK);
+        sendLocalReceiver();
+        //后台异步同步数据
+        //ContactsCacheManager.sync();
+
+    }
+
+
     private int mLogoHeight;
     private int mLogoWidth;
 
@@ -198,7 +213,7 @@ public class LoginActivity extends AccountBaseActivity implements View.OnClickLi
     }
 
     @SuppressWarnings("ConstantConditions")
-    @OnClick({R.id.ib_navigation_back,R.id.ib_login_weibo, R.id.ib_login_qq})//, R.id.ib_login_wx
+    @OnClick({R.id.ib_navigation_back,R.id.bt_login_register,R.id.ib_login_weibo, R.id.ib_login_qq})//, R.id.ib_login_wx
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -206,6 +221,10 @@ public class LoginActivity extends AccountBaseActivity implements View.OnClickLi
             case R.id.ib_navigation_back:
                 finish();
                 break;
+
+            case R.id.bt_login_register:
+                RegisterStepOneActivity.show(this);
+                finish();
             case R.id.ib_login_weibo:
                 weiBoLogin();
                 break;

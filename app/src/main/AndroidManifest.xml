@@ -87,12 +87,28 @@
         <activity
             android:name="net.translives.app.account.LoginActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:label="登录中心"
+            android:label="登录"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/Account_Base.App.Theme.NoTitle"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
+        <activity
+            android:name="net.translives.app.account.RegisterStepOneActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="注册"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.App.Theme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="net.translives.app.account.RegisterStepTwoActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="完善资料"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.App.Theme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <meta-data
             android:name="UMENG_APPKEY"
@@ -297,10 +313,9 @@
             android:theme="@style/BaseTheme" />
         <activity
             android:name=".vote.VoteDetailActivity"
-            android:configChanges="keyboardHidden|orientation"
             android:label="投票详情"
             android:screenOrientation="portrait"
-            android:theme="@style/ThemeTranslucent"
+            android:theme="@style/Base.App.Theme"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".event.EventListActivity"
