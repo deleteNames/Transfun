@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import net.translives.app.R;
+import net.translives.app.message.MessageFragment;
 import net.translives.app.topic.TopicIndexFragment;
 import net.translives.app.attent.AttentPageFragment;
 import net.translives.app.base.fragments.BaseFragment;
@@ -81,7 +82,7 @@ public class NavFragment extends BaseFragment implements View.OnClickListener, N
 
         mNavExplore.init(R.drawable.tab_icon_remind,
                 R.string.main_tab_name_attent,
-                AttentPageFragment.class);
+                MessageFragment.class);
 
         mNavMe.init(R.drawable.tab_icon_me,
                 R.string.main_tab_name_setting,

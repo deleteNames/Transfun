@@ -1,36 +1,27 @@
 package net.translives.app.account;
 
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
-import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.TextHttpResponseHandler;
 
 
-import net.translives.app.AppContext;
 import net.translives.app.AppOperator;
 import net.translives.app.R;
 import net.translives.app.api.OSChinaApi;
 import net.translives.app.bean.RegisterCheck;
+import net.translives.app.bean.User;
 import net.translives.app.bean.base.ResultBean;
 import net.translives.app.util.TDevice;
-import net.translives.app.util.parser.RichTextParser;
 
 import java.lang.reflect.Type;
 
@@ -44,7 +35,7 @@ import cz.msebera.android.httpclient.Header;
  * desc:
  */
 
-public class RegisterStepOneActivity extends AccountBaseActivity implements View.OnClickListener, View.OnFocusChangeListener{
+public class RegisterActivity extends AccountBaseActivity implements View.OnClickListener, View.OnFocusChangeListener{
 
     @Bind(R.id.ll_register_email)
     LinearLayout mLlRegisterEmail;
@@ -94,13 +85,13 @@ public class RegisterStepOneActivity extends AccountBaseActivity implements View
         public void onSuccess(int statusCode, Header[] headers, String responseString) {
 
 
-                Type phoneType = new TypeToken<ResultBean<RegisterCheck>>() {
+                Type phoneType = new TypeToken<ResultBean<User>>() {
                 }.getType();
 
-                ResultBean<RegisterCheck> ResultBean = AppOperator.createGson().fromJson(responseString, phoneType);
+                ResultBean<User> ResultBean = AppOperator.createGson().fromJson(responseString, phoneType);
                 if (ResultBean.isSuccess()) {
-                    RegisterCheck registerResult = ResultBean.getResult();
-                    RegisterStepTwoActivity.show(RegisterStepOneActivity.this, registerResult.getUid());
+                    User user = ResultBean.getResult();
+                    UserUploadActivity.show(RegisterActivity.this, user);
                 } else {
                     showToastForKeyBord(ResultBean.getMessage());
                 }
@@ -114,13 +105,13 @@ public class RegisterStepOneActivity extends AccountBaseActivity implements View
      * @param context context
      */
     public static void show(Context context) {
-        Intent intent = new Intent(context, RegisterStepOneActivity.class);
+        Intent intent = new Intent(context, RegisterActivity.class);
         context.startActivity(intent);
     }
 
     @Override
     protected int getContentView() {
-        return R.layout.activity_main_register_step_one;
+        return R.layout.activity_main_register;
     }
 
     @Override

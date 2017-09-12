@@ -1,219 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_register_one_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/layout_item_bg">
+    android:background="@mipmap/bg_login"
+    android:orientation="vertical">
 
-    <android.support.v4.widget.NestedScrollView
+    <ImageView
+        android:id="@+id/iv_login_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@null"
+        android:paddingTop="48dp"
+        app:srcCompat="@mipmap/logo_osc"/>
+
+    <LinearLayout
+        android:id="@+id/ll_register_email"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none">
+        android:layout_height="56dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_login_input_ok"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="14dp"
+            android:contentDescription="@null"
+            app:srcCompat="@mipmap/ic_singup_email"
+            tools:ignore="RtlHardcoded"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_material"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:paddingRight="@dimen/space_16">
+        <View
+            android:layout_width="1px"
+            android:layout_height="22dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:background="@color/login_line_color"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/space_4"
-                    android:text="@string/avatar"
-                    android:textColor="?attr/infoTextColor"
-                    android:textSize="@dimen/text_size_16"
-                    android:padding="@dimen/space_16"/>
+        <EditText
+            android:id="@+id/et_register_email"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/register_input_email_hint"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/account_input_color"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/font_16"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+        <ImageView
+            android:id="@+id/iv_register_email_del"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            app:srcCompat="@mipmap/ic_clear"/>
+    </LinearLayout>
 
-                <net.translives.app.widget.PortraitView
-                    android:id="@+id/iv_avatar"
-                    style="@style/UserFaceImageStyle"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_gravity="center_vertical"
-                    app:civ_border_color="@color/white"
-                    app:civ_border_width="2dp" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/ly_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_material"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:padding="@dimen/space_16">
-
-                <TextView
-                    android:id="@+id/iv_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/space_4"
-                    android:text="@string/nickname"
-                    android:textColor="?attr/infoTextColor"
-                    android:textSize="@dimen/text_size_16" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="?attr/textColor"
-                    android:textSize="@dimen/text_size_16" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ly_gender"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_material"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:padding="@dimen/space_16">
-
-                <TextView
-                    android:id="@+id/iv_gender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/space_4"
-                    android:text="@string/gender"
-                    android:textColor="?attr/infoTextColor"
-                    android:textSize="@dimen/text_size_16" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/tv_gender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="?attr/textColor"
-                    android:textSize="@dimen/text_size_16" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_material"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:padding="@dimen/space_16">
-
-                <TextView
-                    android:id="@+id/text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/space_4"
-                    android:text="@string/join_time"
-                    android:textColor="?attr/infoTextColor"
-                    android:textSize="@dimen/text_size_16" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/tv_join_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="?attr/infoTextColor"
-                    android:textSize="@dimen/text_size_16" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_material"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:padding="@dimen/space_16">
-
-                <TextView
-                    android:id="@id/text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/space_4"
-                    android:text="@string/location"
-                    android:textColor="?attr/infoTextColor"
-                    android:textSize="@dimen/text_size_16" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/tv_location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="?attr/infoTextColor"
-                    android:textSize="@dimen/text_size_16" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/ly_suffix"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_material"
-                android:clickable="true"
-                android:orientation="horizontal"
-                android:padding="@dimen/space_16">
-
-                <TextView
-                    android:id="@+id/iv_suffix"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/space_4"
-                    android:text="@string/suffix"
-                    android:textColor="?attr/infoTextColor"
-                    android:textSize="@dimen/text_size_16" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/tv_suffix"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="?attr/textColor"
-                    android:textSize="@dimen/text_size_16" />
-            </LinearLayout>
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
-
-    <net.translives.app.ui.empty.EmptyLayout
-        android:id="@+id/error_layout"
+    <LinearLayout
+        android:id="@+id/ll_register_pwd"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:visibility="visible" />
-</FrameLayout>
+        android:layout_height="56dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_login_input_ok"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:contentDescription="@null"
+            app:srcCompat="@mipmap/ic_login_password" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="22dp"
+            android:background="@color/login_line_color" />
+
+        <EditText
+            android:id="@+id/et_register_pwd"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/login_line_color"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/font_16" />
+
+        <ImageView
+            android:id="@+id/iv_register_pwd_del"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            app:srcCompat="@mipmap/ic_clear" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_register_submit"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_login_submit_lock"
+        android:elevation="0dp"
+        android:text="@string/register_btn_hint"
+        android:textColor="@color/account_lock_font_color"
+        android:textSize="@dimen/font_18"
+        android:translationZ="0dp"
+        tools:targetApi="lollipop"/>
+</LinearLayout>

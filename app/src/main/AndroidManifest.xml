@@ -94,7 +94,7 @@
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
-            android:name="net.translives.app.account.RegisterStepOneActivity"
+            android:name="net.translives.app.account.RegisterActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="注册"
             android:launchMode="singleTop"
@@ -102,7 +102,7 @@
             android:theme="@style/Base.App.Theme"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="net.translives.app.account.RegisterStepTwoActivity"
+            android:name="net.translives.app.account.UserUploadActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="完善资料"
             android:launchMode="singleTop"
@@ -338,6 +338,9 @@
             android:name=".update.DownloadService"
             android:exported="false" />
 
+        <service
+            android:name=".message.SocketService"
+            android:process=":remote"/>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="net.translives.app.provider"

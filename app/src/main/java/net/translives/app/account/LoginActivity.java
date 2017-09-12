@@ -4,12 +4,9 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.SharedPreferencesCompat;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -20,7 +17,7 @@ import android.widget.TextView;
 
 import net.translives.app.AppOperator;
 import net.translives.app.util.TLog;
-import com.google.gson.GsonBuilder;
+
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.TextHttpResponseHandler;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
@@ -223,7 +220,7 @@ public class LoginActivity extends AccountBaseActivity implements View.OnClickLi
                 break;
 
             case R.id.bt_login_register:
-                RegisterStepOneActivity.show(this);
+                RegisterActivity.show(this);
                 finish();
             case R.id.ib_login_weibo:
                 weiBoLogin();

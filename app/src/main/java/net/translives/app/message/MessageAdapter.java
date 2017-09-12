@@ -20,10 +20,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * on 2016/8/16.
  */
 
-public class TabMessageAdapter extends BaseGeneralRecyclerAdapter<Message> {
+public class MessageAdapter extends BaseGeneralRecyclerAdapter<Message> {
     private OnUserFaceClickListener mListener;
 
-    public TabMessageAdapter(Callback callback) {
+    public MessageAdapter(Callback callback) {
         super(callback, ONLY_FOOTER);
         initListener();
     }

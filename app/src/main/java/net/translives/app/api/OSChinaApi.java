@@ -445,18 +445,6 @@ public class OSChinaApi {
         ApiHttpClient.get("api/attent/list", params, handler);
     }
 
-    /**
-     * 获取用户私信列表
-     *
-     * @param pageToken pageToken
-     * @param handler   回调
-     */
-    public static void getUserMessageList(String pageToken, TextHttpResponseHandler handler) {
-        RequestParams params = new RequestParams();
-        params.put("page", pageToken);
-        ApiHttpClient.get("api/user/message/list", params, handler);
-    }
-
     public static void getUserCollectionList(String pageToken,long userId,  AsyncHttpResponseHandler handler) {
         RequestParams params = new RequestParams();
         params.put("page", pageToken);
@@ -603,5 +591,76 @@ public class OSChinaApi {
         params.put("content", content);
 
         ApiHttpClient.post("api/topic/create", params, handler);
+    }
+
+
+    /**
+     * 拉取用户好友（联系人）
+     *
+     * @param userId       userId
+     * @param pageToken    pageToken
+     * @param requestCount requestCount
+     * @param handler      handler
+     */
+    public static void getUserFriends(long userId, String pageToken, int requestCount, TextHttpResponseHandler handler) {
+
+        if (userId <= 0) return;
+        RequestParams params = new RequestParams();
+        params.put("id", userId);
+        params.put("page", pageToken);
+        params.put("count", requestCount);
+        ApiHttpClient.get("api/user/friends", params, handler);
+    }
+
+
+    /**
+     * 获取消息列表
+     *
+     * @param authorId  authorId 用户id，不加该参数时返回所有给我发送消息的列表
+     * @param pageToken pageToken
+     * @param handler   回调
+     */
+    public static void getMessageList(long authorId, String pageToken, TextHttpResponseHandler handler) {
+        RequestParams params = new RequestParams();
+        params.put("authorId", authorId);
+        params.put("page", pageToken);
+        ApiHttpClient.get("api/user/message/list", params, handler);
+    }
+
+    /**
+     * 获取用户私信列表
+     *
+     * @param pageToken pageToken
+     * @param handler   回调
+     */
+    public static void getUserMessageList(String pageToken, TextHttpResponseHandler handler) {
+        RequestParams params = new RequestParams();
+        params.put("page", pageToken);
+        ApiHttpClient.get("api/user/message/list", params, handler);
+    }
+
+    /**
+     * 发送消息
+     *
+     * @param authorId 接收者
+     * @param content  发送内容
+     * @param handler  回调
+     */
+    public static void pubMessage(long authorId, String content, TextHttpResponseHandler handler) {
+        RequestParams params = new RequestParams();
+        params.put("authorId", authorId);
+        params.put("content", content);
+        post("api/user/message/pub", params, handler);
+    }
+
+    public static void pubMessage(long authorId, File content, TextHttpResponseHandler handler) {
+        RequestParams params = new RequestParams();
+        params.put("authorId", authorId);
+        try {
+            params.put("file", content);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        post("api/user/message/pub", params, handler);
     }
 }

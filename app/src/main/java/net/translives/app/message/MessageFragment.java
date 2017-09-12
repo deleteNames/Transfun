@@ -12,7 +12,6 @@ import net.translives.app.bean.Message;
 import net.translives.app.bean.User;
 import net.translives.app.bean.base.PageBean;
 import net.translives.app.bean.base.ResultBean;
-import net.translives.app.message.TabMessageAdapter;
 
 import java.lang.reflect.Type;
 
@@ -21,19 +20,18 @@ import java.lang.reflect.Type;
  * on 2016/8/16.
  */
 
-public class TabMessageFragment extends BaseRecyclerViewFragment<Message> {
+public class MessageFragment extends BaseRecyclerViewFragment<Message> {
 
     public long authorId;
 
-    private MessagePageFragment activity;
-/*
-    public TabMessageFragment(MessagePageFragment messagePageFragment) {
-        activity = messagePageFragment;
-    }
-*/
+    //private UserMessageActivity activity;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        //if (context != null && context instanceof UserMessageActivity) {
+        //    activity = (UserMessageActivity) context;
+       // }
     }
 
     @Override
@@ -56,17 +54,17 @@ public class TabMessageFragment extends BaseRecyclerViewFragment<Message> {
 
     @Override
     public void onItemClick(int position, long itemId) {
-        //Message message = mAdapter.getItem(position);
-        //if (message == null)
-        //    return;
-        //User sender = message.getSender();
-        //if (sender != null)
-        //    UserSendMessageActivity.show(getContext(), message.getSender());
+        Message message = mAdapter.getItem(position);
+        if (message == null)
+            return;
+        User sender = message.getSender();
+        if (sender != null)
+            SendMessageActivity.show(getContext(), message.getSender());
     }
 
     @Override
     protected BaseRecyclerAdapter<Message> getRecyclerAdapter() {
-        return new TabMessageAdapter(this);
+        return new MessageAdapter(this);
     }
 
     @Override
